@@ -41,6 +41,8 @@ return new class extends Migration
             $table->string('email');
             $table->boolean('is_photo_usage_accepted')->default(false);
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

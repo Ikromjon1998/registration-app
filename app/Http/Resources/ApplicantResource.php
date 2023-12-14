@@ -14,22 +14,7 @@ class ApplicantResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        /***
-         * 'user_id',
-         * 'first_name',
-         * 'last_name',
-         * 'gender',
-         * 'birthday',
-         * 'birthplace_city',
-         * 'birthplace_country',
-         * 'citizenship',
-         * 'phone_number',
-         * 'telephone_number',
-         * 'email',
-         * 'is_photo_usage_accepted',
-         */
         return [
-            'id' => $this->resource->id,
             'firstName' => $this->resource->first_name,
             'lastName' => $this->resource->last_name,
             'gender' => $this->resource->gender,

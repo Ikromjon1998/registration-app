@@ -14,7 +14,7 @@ class Under18Resource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return array(
+        return [
             'motherFirstName' => $this->resource->mother_first_name,
             'motherLastName' => $this->resource->mother_last_name,
             'motherPhoneNumber' => $this->resource->mother_phone_number,
@@ -25,6 +25,6 @@ class Under18Resource extends JsonResource
             'guardianFirstName' => $this->resource->guardian_first_name,
             'guardianLastName' => $this->resource->guardian_last_name,
             'guardianPhoneNumber' => $this->resource->guardian_phone_number,
-        );
+        ];
     }
 }

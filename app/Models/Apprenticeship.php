@@ -15,9 +15,9 @@ class Apprenticeship extends Model
     protected $fillable = [
         'applicant_id',
         'apprentice_as',
-        'apprentice_company',
-        'apprentice_company_street',
-        'apprentice_company_house_number',
+        'company_name',
+        'company_street',
+        'company_house_number',
         'contact_person',
         'company_phone_number',
         'company_fax_number',

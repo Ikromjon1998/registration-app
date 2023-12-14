@@ -13,7 +13,6 @@ class Applicant extends Model
 
     protected $keyType = 'string';
     public $incrementing = false;
-
     protected bool $primaryKeyIsUuid = true;
     protected $fillable = [
         'first_name',

@@ -17,12 +17,12 @@ class ResidenceResource extends JsonResource
         return [
             'applicantId' => $this->resource->applicant_id,
             'street' => $this->resource->street,
-            'house_number' => $this->resource->house_number,
+            'houseNumber' => $this->resource->house_number,
             'city' => $this->resource->city,
-            'zip_code' => $this->resource->zip_code,
-            'live_by' => $this->resource->live_by,
-            'person_in_case_of_emergency' => $this->resource->person_in_case_of_emergency,
-            'phone_number_in_case_of_emergency' => $this->resource->phone_number_in_case_of_emergency,
+            'zipCode' => $this->resource->zip_code,
+            'liveBy' => $this->resource->live_by,
+            'personInCaseOfEmergency' => $this->resource->person_in_case_of_emergency,
+            'phoneNumberInCaseOfEmergency' => $this->resource->phone_number_in_case_of_emergency,
         ];
     }
 }

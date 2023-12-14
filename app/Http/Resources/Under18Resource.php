@@ -14,17 +14,17 @@ class Under18Resource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return [
-            'mother_first_name' => $this->mother_first_name,
-            'mother_last_name' => $this->mother_last_name,
-            'mother_phone_number' => $this->mother_phone_number,
-            'father_first_name' => $this->father_first_name,
-            'father_last_name' => $this->father_last_name,
-            'father_phone_number' => $this->father_phone_number,
-            'parent_address' => $this->parent_address,
-            'guardian_first_name' => $this->guardian_first_name,
-            'guardian_last_name' => $this->guardian_last_name,
-            'guardian_phone_number' => $this->guardian_phone_number,
-        ];
+        return array(
+            'motherFirstName' => $this->resource->mother_first_name,
+            'motherLastName' => $this->resource->mother_last_name,
+            'motherPhoneNumber' => $this->resource->mother_phone_number,
+            'fatherFirstName' => $this->resource->father_first_name,
+            'fatherLastName' => $this->resource->father_last_name,
+            'fatherPhoneNumber' => $this->resource->father_phone_number,
+            'parentAddress' => $this->resource->parent_address,
+            'guardianFirstName' => $this->resource->guardian_first_name,
+            'guardianLastName' => $this->resource->guardian_last_name,
+            'guardianPhoneNumber' => $this->resource->guardian_phone_number,
+        );
     }
 }

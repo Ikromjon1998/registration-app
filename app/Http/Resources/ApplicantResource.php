@@ -29,18 +29,18 @@ class ApplicantResource extends JsonResource
          * 'is_photo_usage_accepted',
          */
         return [
-            'id' => $this->id,
-            'first_name' => $this->first_name,
-            'last_name' => $this->last_name,
-            'gender' => $this->gender,
-            'birthday' => $this->birthday,
-            'birthplace_city' => $this->birthplace_city,
-            'birthplace_country' => $this->birthplace_country,
-            'citizenship' => $this->citizenship,
-            'phone_number' => $this->phone_number,
-            'telephone_number' => $this->telephone_number,
-            'email' => $this->email,
-            'is_photo_usage_accepted' => $this->is_photo_usage_accepted,
+            'id' => $this->resource->id,
+            'firstName' => $this->resource->first_name,
+            'lastName' => $this->resource->last_name,
+            'gender' => $this->resource->gender,
+            'birthday' => $this->resource->birthday,
+            'birthplaceCity' => $this->resource->birthplace_city,
+            'birthplaceCountry' => $this->resource->birthplace_country,
+            'citizenship' => $this->resource->citizenship,
+            'phoneNumber' => $this->resource->phone_number,
+            'telephoneNumber' => $this->resource->telephone_number,
+            'email' => $this->resource->email,
+            'isPhotoUsageAccepted' => $this->resource->is_photo_usage_accepted,
         ];
     }
 }

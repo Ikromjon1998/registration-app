@@ -15,14 +15,14 @@ class ResidenceResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'applicant_id' => $this->applicant_id,
-            'street' => $this->street,
-            'house_number' => $this->house_number,
-            'city' => $this->city,
-            'zip_code' => $this->zip_code,
-            'live_by' => $this->live_by,
-            'person_in_case_of_emergency' => $this->person_in_case_of_emergency,
-            'phone_number_in_case_of_emergency' => $this->phone_number_in_case_of_emergency,
+            'applicantId' => $this->resource->applicant_id,
+            'street' => $this->resource->street,
+            'house_number' => $this->resource->house_number,
+            'city' => $this->resource->city,
+            'zip_code' => $this->resource->zip_code,
+            'live_by' => $this->resource->live_by,
+            'person_in_case_of_emergency' => $this->resource->person_in_case_of_emergency,
+            'phone_number_in_case_of_emergency' => $this->resource->phone_number_in_case_of_emergency,
         ];
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\ApplicantResource;
 use App\Models\Applicant;
+use App\Models\Residence;
 use Illuminate\Http\Request;
 
 class ApplicantController extends Controller
@@ -27,7 +28,7 @@ class ApplicantController extends Controller
 
         if ($validatedApplicantData['is_photo_usage_accepted'] === false) {
             return response()->json([
-                'message' => 'Photo usage must be accepted'
+                'message' => 'Photo usage must be accepted',
             ], 400);
         }
 
@@ -39,22 +40,25 @@ class ApplicantController extends Controller
             ], 400);
         }
 
+        // it is wrong here
         $applicant = new Applicant($validatedApplicantData);
         $applicant->save();
 
+        // Create a new Residence associated with the Applicant
+        $residence = new Residence();
+        $applicant->residence()->save($residence);
+
         return response()->json([
             'message' => 'Applicant created successfully',
-            'applicant' => new ApplicantResource($applicant)
+            'applicant_id' => $applicant->id,
+            'residence_id' => $applicant->residence->id,
         ], 201);
     }
 
     public function test(Request $request): \Illuminate\Http\JsonResponse
     {
         return response()->json([
-            'message' => 'Applicant created successfully'
+            'message' => 'Applicant created successfully',
         ], 201);
     }
-
-
-
 }

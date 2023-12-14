@@ -28,7 +28,6 @@ return new class extends Migration
          */
         Schema::create('applicants', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('user_id')->nullable();
             $table->string('first_name');
             $table->string('last_name');
             $table->enum('gender', ['M', 'F', 'D']);
@@ -41,8 +40,6 @@ return new class extends Migration
             $table->string('email');
             $table->boolean('is_photo_usage_accepted')->default(false);
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

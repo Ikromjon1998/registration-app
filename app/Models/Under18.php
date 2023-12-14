@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Under18 extends Model
 {
@@ -11,7 +12,6 @@ class Under18 extends Model
 
     protected $keyType = 'string';
     public $incrementing = false;
-
     protected $fillable = [
         'applicant_id',
         'mother_first_name',
@@ -25,4 +25,9 @@ class Under18 extends Model
         'guardian_last_name',
         'guardian_phone_number',
     ];
+
+    public function applicant(): BelongsTo
+    {
+        return $this->belongsTo(Applicant::class);
+    }
 }

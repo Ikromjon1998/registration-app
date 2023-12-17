@@ -37,4 +37,14 @@ class Applicant extends Model
     {
         return $this->hasOne(Under18::class);
     }
+
+    public function apprenticeship(): HasOne
+    {
+        return $this->hasOne(Apprenticeship::class);
+    }
+
+    public function education(): HasOne
+    {
+        return $this->hasOne(Education::class);
+    }
 }

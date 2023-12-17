@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\ApplicantResource;
 use App\Models\Applicant;
+use App\Models\Apprenticeship;
+use App\Models\Education;
 use App\Models\Residence;
+use App\Models\Under18;
 use Illuminate\Http\Request;
 
 class ApplicantController extends Controller
@@ -48,10 +51,23 @@ class ApplicantController extends Controller
         $residence = new Residence();
         $applicant->residence()->save($residence);
 
+        $unter18 = new Under18();
+        $applicant->under18()->save($unter18);
+
+        $apprenticeship = new Apprenticeship();
+        $applicant->apprenticeship()->save($apprenticeship);
+
+        $education = new Education();
+        $applicant->education()->save($education);
+
+
         return response()->json([
             'message' => 'Applicant created successfully',
-            'applicant_id' => $applicant->id,
-            'residence_id' => $applicant->residence->id,
+            'applicantId' => $applicant->id,
+            'residenceId' => $applicant->residence->id,
+            'under18Id' => $applicant->under18->id,
+            'apprenticeshipId' => $applicant->apprenticeship->id,
+            'educationId' => $applicant->education->id,
         ], 201);
     }
 

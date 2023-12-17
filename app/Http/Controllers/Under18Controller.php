@@ -44,6 +44,10 @@ class Under18Controller extends Controller
 
         $under18->update($validatedUnder18Data);
 
-        return response()->json($under18, 200);
+        return response()->json([
+            'message' => 'Under18 updated successfully',
+            'applicantId' => $under18->applicant->id,
+            'under18' => $under18,
+        ], 200);
     }
 }

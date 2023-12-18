@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\EducationResource;
 use App\Models\Applicant;
 use App\Models\Education;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class EducationController extends Controller
@@ -28,9 +29,24 @@ class EducationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Applicant $applicant): JsonResponse
     {
-        //
+        $validatedEducation = $request->validate([
+            'graduation_type' => 'required|string|max:255',
+            'latest_school_name' => 'required|string|max:255',
+            'graduation_year' => 'required|string|max:255',
+            'completed_course_name' => 'required|string|max:255',
+            'completed_education' => 'required|string|max:255',
+            'new_in_school' => 'required|string|max:255',
+        ]);
+
+        $education = new Education($validatedEducation);
+        $applicant->education()->save($education);
+
+        return response()->json([
+            'message' => 'Education saved successfully',
+            'applicantId' => $applicant->id,
+        ], 201);
     }
 
     /**

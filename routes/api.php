@@ -27,8 +27,6 @@ Route::get('/test', [ApplicantController::class, 'test'])->name('api.test');
 
 Route::prefix('/applicants')->group(callback: function () {
     Route::post('/register', [ApplicantController::class, 'register'])->name('api.register');
-    //    Route::put('/{applicant}/residence/{residence}', [ResidenceController::class, 'update'])->name('api.residence.update');
-    //    Route::put('/{applicant}/under18/{under18}', [Under18Controller::class, 'update'])->name('api.under18.update');
     Route::post('/{applicant}/residences/save', [ResidenceController::class, 'store'])->name('api.residence.save');
     Route::post('/{applicant}/under18s/save', [Under18Controller::class, 'store'])->name('api.under18.save');
     Route::post('/{applicant}/apprenticeships/save', [ApprenticeshipController::class, 'store'])->name('api.apprenticeship.save');

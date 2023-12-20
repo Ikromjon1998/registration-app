@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Service;
+namespace App\Services;
 
 use App\Models\Applicant;
 use App\Models\Residence;
-use RegisterComponentInterface;
+use App\Services\RegisterComponentInterface;
 
 class ResidenceRegistrationService implements RegisterComponentInterface
 {

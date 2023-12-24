@@ -5,11 +5,16 @@ namespace App\Http\Controllers;
 use App\Http\Resources\EducationResource;
 use App\Models\Applicant;
 use App\Models\Education;
+use App\Services\EducationRegistrationService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class EducationController extends Controller
 {
+    public function __construct(private EducationRegistrationService $registrationService)
+    {
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -40,12 +45,12 @@ class EducationController extends Controller
             'new_in_school' => 'required|string|max:255',
         ]);
 
-        $education = new Education($validatedEducation);
-        $applicant->education()->save($education);
+        $this->registrationService->register($applicant, $validatedEducation);
 
         return response()->json([
             'message' => 'Education saved successfully',
             'applicantId' => $applicant->id,
+            'education' => new EducationResource($applicant->education),
         ], 201);
     }
 
@@ -68,31 +73,9 @@ class EducationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Applicant $applicant, Education $education)
+    public function update(Request $request, Education $education)
     {
-        if ($applicant->id !== $education->applicant_id) {
-            return response()->json([
-                'message' => 'Applicant id and Education applicant_id do not match',
-            ], 400);
-        }
-
-        $validatedEducation = $request->validate([
-            'street' => 'required|string|max:255',
-            'house_number' => 'required|string|max:6',
-            'city' => 'required|string|max:255',
-            'zip_code' => 'required|string|max:10',
-            'live_by' => 'nullable|string|max:100', // nullable
-            'person_in_case_of_emergency' => 'nullable|string|max:255', // nullable
-            'phone_number_in_case_of_emergency' => 'nullable|string|max:255', // nullable
-        ]);
-
-        $education->update($validatedEducation);
-
-        return response()->json([
-            'message' => 'Residence updated successfully',
-            'applicantId' => $education->applicant->id,
-            'education' => new EducationResource($education),
-        ], 200);
+        //
     }
 
     /**

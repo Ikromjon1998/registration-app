@@ -21,7 +21,7 @@ class ApplicantController extends Controller
             'citizenship' => 'required|string|max:255',
             'phone_number' => 'nullable|string|max:255',
             'telephone_number' => 'nullable|string|max:255',
-            'email' => 'required|email:rfc,dns|max:255',
+            'email' => 'required|email|max:255',
             'is_photo_usage_accepted' => 'required|boolean',
         ]);
 
@@ -39,20 +39,11 @@ class ApplicantController extends Controller
             ], 400);
         }
 
-        // it is wrong here
-        $applicant = new Applicant($validatedApplicantData);
-        $applicant->save();
+        $applicant = Applicant::create($validatedApplicantData);
 
         return response()->json([
             'message' => 'Applicant created successfully',
             'applicantId' => $applicant->id,
-        ], 201);
-    }
-
-    public function test(Request $request): \Illuminate\Http\JsonResponse
-    {
-        return response()->json([
-            'message' => 'Applicant created successfully',
         ], 201);
     }
 }

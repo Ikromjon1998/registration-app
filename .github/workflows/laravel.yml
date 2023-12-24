@@ -39,3 +39,5 @@ jobs:
       run: composer checkstyle
     - name: PHPStan
       run: composer phpstan
+    - name: PHP Unit
+      run: composer phpunit

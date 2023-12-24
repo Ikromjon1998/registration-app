@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\ResidenceResource;
 use App\Models\Applicant;
 use App\Models\Residence;
-use App\Service\ResidenceRegistrationService;
+use App\Services\ResidenceRegistrationService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 

@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\Models\Applicant;
 use App\Models\Residence;
-use App\Services\RegisterComponentInterface;
 
 class ResidenceRegistrationService implements RegisterComponentInterface
 {

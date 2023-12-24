@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Service;
+namespace App\Services;
 
 use App\Models\Applicant;
 use App\Models\Under18;
 
-class Under18RegistrationService implements \RegisterComponentInterface
+class Under18RegistrationService implements RegisterComponentInterface
 {
     public function register(Applicant $applicant, array $validatedData): void
     {

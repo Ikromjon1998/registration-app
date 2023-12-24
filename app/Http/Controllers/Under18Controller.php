@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\Under18Resource;
 use App\Models\Applicant;
-use App\Models\Under18;
 use App\Services\Under18RegistrationService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;

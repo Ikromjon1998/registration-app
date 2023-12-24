@@ -13,6 +13,7 @@ class ApprenticeshipController extends Controller
     public function __construct(private ApprenticeshipRegistrationService $registrationService)
     {
     }
+
     public function store(Request $request, Applicant $applicant): JsonResponse
     {
         $validatedApprenticeship = $request->validate([

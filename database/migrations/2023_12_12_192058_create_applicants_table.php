@@ -28,7 +28,6 @@ return new class extends Migration
          */
         Schema::create('applicants', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('user_id')->nullable();
             $table->string('first_name');
             $table->string('last_name');
             $table->enum('gender', ['M', 'F', 'D']);

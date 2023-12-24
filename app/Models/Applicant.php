@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Appicant extends Model
+class Applicant extends Model
 {
     use HasFactory, HasUuids;
 
     protected $keyType = 'string';
     public $incrementing = false;
-
+    protected bool $primaryKeyIsUuid = true;
     protected $fillable = [
-        'user_id',
         'first_name',
         'last_name',
         'gender',
@@ -27,4 +27,24 @@ class Appicant extends Model
         'email',
         'is_photo_usage_accepted',
     ];
+
+    public function residence(): HasOne
+    {
+        return $this->hasOne(Residence::class);
+    }
+
+    public function under18(): HasOne
+    {
+        return $this->hasOne(Under18::class);
+    }
+
+    public function apprenticeship(): HasOne
+    {
+        return $this->hasOne(Apprenticeship::class);
+    }
+
+    public function education(): HasOne
+    {
+        return $this->hasOne(Education::class);
+    }
 }

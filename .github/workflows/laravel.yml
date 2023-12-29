@@ -33,9 +33,14 @@ jobs:
         mkdir -p database
         touch database/database.sqlite
         touch database/testing.sqlite
-    - name: Update Dependencies
-      run: composer install
+    - name: Run Migrations
+      run: |
+          php artisan migrate --env=testing
     - name: Check style
       run: composer checkstyle
     - name: PHPStan
       run: composer phpstan
+    - name: NPM install and build
+      run: npm install && npm run build
+    - name: PHP Unit
+      run: composer phpunit

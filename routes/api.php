@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\ApplicantController;
-use App\Http\Controllers\ApprenticeshipController;
-use App\Http\Controllers\EducationController;
-use App\Http\Controllers\ResidenceController;
-use App\Http\Controllers\Under18Controller;
+use App\Http\Controllers\API\ApplicantController;
+use App\Http\Controllers\API\ApprenticeshipController;
+use App\Http\Controllers\API\EducationController;
+use App\Http\Controllers\API\ResidenceController;
+use App\Http\Controllers\API\Under18Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

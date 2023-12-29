@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use App\Http\Resources\ApplicantResource;
 use App\Models\Applicant;
 use Illuminate\Http\Request;
@@ -39,11 +40,9 @@ class ApplicantController extends Controller
             ], 400);
         }
 
-        $applicant = Applicant::create($validatedApplicantData);
-
         return response()->json([
             'message' => 'Applicant created successfully',
-            'applicantId' => $applicant->id,
+            'applicantId' => Applicant::create($validatedApplicantData)->id,
         ], 201);
     }
 }

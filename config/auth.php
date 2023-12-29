@@ -40,6 +40,12 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'api' => [
+            'driver' => 'passport',
+            'provider' => 'users',
+            // 'hash' => false, // This is the important line, because Passport will hash the password by default
+        ],
     ],
 
     /*

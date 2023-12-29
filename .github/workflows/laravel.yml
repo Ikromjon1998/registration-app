@@ -36,7 +36,6 @@ jobs:
     - name: Run Migrations
       run: |
           php artisan migrate --env=testing
-          php artisan migrate --database=sqlite
     - name: Check style
       run: composer checkstyle
     - name: PHPStan

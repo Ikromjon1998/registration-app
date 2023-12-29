@@ -39,5 +39,7 @@ jobs:
       run: composer checkstyle
     - name: PHPStan
       run: composer phpstan
+    - name: NPM install
+      run: npm install
     - name: PHP Unit
       run: composer phpunit

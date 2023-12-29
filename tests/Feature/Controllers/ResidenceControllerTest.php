@@ -4,7 +4,7 @@ namespace Feature\Controllers;
 
 use Tests\TestCase;
 
-class ResidenceTest extends TestCase
+class ResidenceControllerTest extends TestCase
 {
     /**
      * A basic feature test example.
